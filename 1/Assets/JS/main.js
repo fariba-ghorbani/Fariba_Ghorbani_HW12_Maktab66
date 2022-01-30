@@ -14,6 +14,9 @@ form.addEventListener("submit", (e) => {
 
     if(firstName.checkValidity() && lastName.checkValidity()) {
         modal.classList.add("show")
+        setTimeout(() => {
+            window.location.reload()
+        }, 8000)
     }
 })
 
