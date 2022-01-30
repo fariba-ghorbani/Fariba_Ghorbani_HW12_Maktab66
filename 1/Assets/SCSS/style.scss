@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+$font: 'Roboto', sans-serif;
+$base-color: #f2f2f2;
+$submit-color: #33a760;
+$submit-hover: #2c9655;
+$border-radius: 5px;
+
+@mixin pad-mar-wid {
+    width: 100%;
+    padding: 12px 20px;
+    margin-top: 8px;
+    box-sizing: border-box;
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: $border-radius
+}
+*, *::after, *::before {
+    font-family: $font;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+form {
+    flex-basis: 900px;
+    border-radius: 5px;
+    background-color: $base-color;
+    padding: 20px;
+    max-width: 90%;
+}
+div {
+    &:not(.container):not(.modal) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+    }
+    &.container{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center
+    }
+}
+select {
+    @include pad-mar-wid;
+}
+input[type=text] {
+    @include pad-mar-wid;
+    &.invalid {
+        outline: none;
+        border: 2px solid red;
+    }
+}
+#subject {
+    @include pad-mar-wid;
+    height: 150px;
+    resize: none;
+}
+#submit {
+    width: auto;
+    background-color: $submit-color;
+    color: white;
+    padding: 10px 10px;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    &:hover {
+        background-color: $submit-hover;
+    }
+}
+.error {
+    display: none;
+    color: red;
+    font-size: 0.8rem;
+}
+
+@import 'modal';
